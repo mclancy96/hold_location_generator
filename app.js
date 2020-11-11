@@ -1,7 +1,7 @@
-const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
+const random = require('random');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -17,5 +17,5 @@ app.post("/", function(req,res){
 });
 
 app.listen(3000, function(){
-	console.log("The YelpCamp Server has started...");
+	console.log("Hold generator has started...");
 });
