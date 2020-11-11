@@ -20,13 +20,25 @@
 			</p>
 			<div>
 				<strong class="display-3 my-5 font-weight-bold">
-					MC A005<%= //hold %>
+					<%= hold.area %> 
+					<span>
+						<% if (hold.number < 10){%>
+							<%=hold.section%>00<%=hold.number%>
+						<%} else if (hold.number < 100){%>
+							<%=hold.section%>0<%=hold.number%>
+						<%} else {%>
+							<%=hold.section%><%=hold.number%>
+						<%} %>
+					</span>
 				</strong>
 			</div>
 			<div class="h1">
-				<button class="btn btn-danger btn-lg my-5 p-4 h1">
-					New Location!
+				
+				<a href="/">
+					<button class="btn btn-danger btn-lg my-5 p-4 h1" >New Location!
+			
 				</button>
+				</a>
 			</div>
 			
 		</div>
