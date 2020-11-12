@@ -16,18 +16,38 @@
 				TGT 2312 Random Location Picker
 			</h1>
 			<p class="display-3 my-5">
-				Your randomly generated location:
+				Your randomly generated locations:
 			</p>
 			<div>
+				<span class="display-3 my-5">
+					Any Hold Area:
+				</span>
 				<strong class="display-3 my-5 font-weight-bold">
-					<%= hold.area %> 
+					<%= allHold.area %> 
 					<span>
-						<% if (hold.number < 10){%>
-							<%=hold.section%>00<%=hold.number%>
-						<%} else if (hold.number < 100){%>
-							<%=hold.section%>0<%=hold.number%>
+						<% if (allHold.number < 10){%>
+							<%=allHold.section%>00<%=allHold.number%>
+						<%} else if (allHold.number < 100){%>
+							<%=allHold.section%>0<%=allHold.number%>
 						<%} else {%>
-							<%=hold.section%><%=hold.number%>
+							<%=allHold.section%><%=allHold.number%>
+						<%} %>
+					</span>
+				</strong>
+			</div>
+			<div>
+				<span class="display-3 my-5">
+					Just MC and SD:
+				</span>
+				<strong class="display-3 my-5 font-weight-bold">
+					<%= mainHold.area %> 
+					<span>
+						<% if (mainHold.number < 10){%>
+							<%=mainHold.section%>00<%=mainHold.number%>
+						<%} else if (mainHold.number < 100){%>
+							<%=mainHold.section%>0<%=mainHold.number%>
+						<%} else {%>
+							<%=mainHold.section%><%=mainHold.number%>
 						<%} %>
 					</span>
 				</strong>
@@ -35,7 +55,7 @@
 			<div class="h1">
 				
 				<a href="/">
-					<button class="btn btn-danger btn-lg my-5 p-4 h1" >New Location!
+					<button class="btn btn-danger btn-lg my-5 p-4 h1" >New Locations!
 			
 				</button>
 				</a>
