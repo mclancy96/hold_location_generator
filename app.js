@@ -24,15 +24,14 @@ function randomHold(numAreas){
 	const holdSections = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 	//Set maximums of each section
 	var mcSecMax = 25;
-	var mcNumMax = 120;
-	var sdSecMax = 17;
-	var sdNumMax = 60;
-	var drySecMax = 4;
-	var dryNumMax = 40;
+	var sdSecMax = 13;
+	//DRY, CLR, and FZR all have uniform numbers for all sections
+	var drySecMax = 1;
+	var dryNumMax = 21;
 	var clrSecMax = 3;
-	var clrNumMax = 20;
-	var fzrSecMax = 3;
-	var fzrNumMax = 20;
+	var clrNumMax = 8;
+	var fzrSecMax = 2;
+	var fzrNumMax = 8;
 	
 	
 	//Select random area based on areaArray
@@ -43,11 +42,34 @@ function randomHold(numAreas){
 	if (setArea == "MC"){
 		var randSection = random.int(0,mcSecMax);
 		var setSection = holdSections[randSection];
-		var setNumber = random.int(1,mcNumMax);
+		//For A 
+		if (randSection < 1) {
+			var setNumber = random.int(1,105);
+		//For B-U	
+		} else if (randSection > 0 && randSection < 21) {
+			var setNumber = random.int(1,17);
+		//For V-Y	
+		} else if (randSection > 20 && randSection < 25) {
+			var setNumber = random.int(1,14);
+		//For Z	
+		} else {
+			var setNumber = random.int(1,28);
+		}
 	} else if (setArea == "SD"){
+		const sdHoldSections = ["A","E","F","G","H","I","J","K","L","M","N","O","P","Q"];
+		const sdANumbers = [25,26,27, 28,29,30, 31, 32, 33];
+		const sdEQNumbers = [1,26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56];
 		var randSection = random.int(0,sdSecMax);
-		var setSection = holdSections[randSection];
-		var setNumber = random.int(1,sdNumMax);
+		var setSection = sdHoldSections[randSection];
+		// For section A
+		if (setSection == "A"){
+			var randNumber = random.int(0,sdANumbers.length-1);
+			var setNumber = sdANumbers[randNumber]
+		// For sections E-Q
+		} else {
+			var randNumber = random.int(0,sdEQNumbers.length-1);
+			var setNumber = sdEQNumbers[randNumber]	   
+		}
 	} else if (setArea == "DRY"){
 		var randSection = random.int(0,drySecMax);
 		var setSection = holdSections[randSection];
